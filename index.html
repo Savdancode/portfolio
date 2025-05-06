@@ -17,41 +17,67 @@
   <title>savdan</title>
 
   <style>
-    /* Simple spinner styles */
-    .loader {
-      position: absolute;
+    /* Loader container: centers everything */
+    .loader-container {
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 9999;
+    }
+
+    /* Spinner circle */
+    .loader {
       border: 6px solid #f3f3f3;
       border-top: 6px solid #3498db;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       animation: spin 1s linear infinite;
-      z-index: 9999;
+      margin: 0 auto;
     }
 
     @keyframes spin {
       0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: rotate(0deg);
       }
 
       100% {
-        transform: translate(-50%, -50%) rotate(360deg);
+        transform: rotate(360deg);
       }
+    }
+
+    /* Loading text */
+    .loading-text {
+      margin-top: 12px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #444;
+    }
+
+    body {
+      overflow: hidden;
+      background: white;
     }
   </style>
 </head>
 
 <body>
-  <!-- Loader shown while Flutter loads -->
-  <div id="loader" class="loader"></div>
+  <!-- Spinner + Loading text -->
+  <div id="loader" class="loader-container">
+    <div class="loader"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
 
   <script>
-    window.addEventListener('load', function () {
-      const loader = document.getElementById('loader');
-      if (loader) loader.remove(); // Remove loader when Flutter is ready
+    // Spinner stays until Flutter renders, then waits 2.5s before removing
+    window.addEventListener('flutter-first-frame', function () {
+      setTimeout(() => {
+        const loader = document.getElementById('loader');
+        if (loader) loader.remove();
+        document.body.style.overflow = 'auto';
+      }, 2500); // 👈 Change this number to control delay (milliseconds)
     });
   </script>
 
