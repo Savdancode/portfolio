@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <base href="/portfolio/">
+  <base href="$FLUTTER_BASE_HREF">
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
@@ -17,7 +17,6 @@
   <title>savdan</title>
 
   <style>
-    /* Loader container: centers everything */
     .loader-container {
       position: fixed;
       top: 50%;
@@ -27,7 +26,6 @@
       z-index: 9999;
     }
 
-    /* Spinner circle */
     .loader {
       border: 6px solid #f3f3f3;
       border-top: 6px solid #3498db;
@@ -48,7 +46,6 @@
       }
     }
 
-    /* Loading text */
     .loading-text {
       margin-top: 12px;
       font-family: Arial, sans-serif;
@@ -64,21 +61,32 @@
 </head>
 
 <body>
-  <!-- Spinner + Loading text -->
-  <div id="loader" class="loader-container">
+  <!-- Only render loader if first-time flag is not set -->
+  <div id="loader" class="loader-container" style="display: none;">
     <div class="loader"></div>
     <div class="loading-text">Loading...</div>
   </div>
 
   <script>
-    // Spinner stays until Flutter renders, then waits 2.5s before removing
-    window.addEventListener('flutter-first-frame', function () {
-      setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if (loader) loader.remove();
-        document.body.style.overflow = 'auto';
-      }, 1800); // 👈 Change this number to control delay (milliseconds)
-    });
+    const isFirstTime = !localStorage.getItem('visited');
+    if (isFirstTime) {
+      // Set flag to remember user has visited
+      localStorage.setItem('visited', 'true');
+      // Show loader
+      document.getElementById('loader').style.display = 'block';
+
+      // Remove loader after Flutter renders + delay
+      window.addEventListener('flutter-first-frame', function () {
+        setTimeout(() => {
+          const loader = document.getElementById('loader');
+          if (loader) loader.remove();
+          document.body.style.overflow = 'auto';
+        }, 1500);
+      });
+    } else {
+      // No spinner, just wait for Flutter normally
+      document.body.style.overflow = 'auto';
+    }
   </script>
 
   <script src="flutter_bootstrap.js" async></script>
