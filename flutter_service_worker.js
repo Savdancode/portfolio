@@ -3,11 +3,11 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "e1024670851ebb87b8f8328fd7909bfe",
+const RESOURCES = {"flutter_bootstrap.js": "c8029e2963db600736f5f9f8875aef58",
 "version.json": "d97bb43413a262df1855b2dcb20adf64",
 "index.html": "4724e55d02cd458120c7796d025c02ff",
 "/": "4724e55d02cd458120c7796d025c02ff",
-"main.dart.js": "2b9a0a74644e2aa0a5d4dcd043986427",
+"main.dart.js": "a7002ce0cfb0730d455510a13d2c7533",
 "flutter.js": "76f08d47ff9f5715220992f993002504",
 "favicon.png": "a5b711612660b5ee056e4f4ae82250c3",
 "icons/Icon-192.png": "a5b711612660b5ee056e4f4ae82250c3",
@@ -29,7 +29,7 @@ const RESOURCES = {"flutter_bootstrap.js": "e1024670851ebb87b8f8328fd7909bfe",
 "assets/assets/images/svg/ic_location.svg": "c97929279af90f053502f4c0b7dd133b",
 "assets/assets/images/svg/ic_email.svg": "7c04ffedb8a1f493facf873787495e8e",
 "assets/assets/images/svg/ic_linkin.svg": "a2a4fcfd72d4462c52544ff6281f4bff",
-"assets/assets/images/svg/ic_telegram.svg": "6a4ec79ae2a0cceab20f0bea94bc037d",
+"assets/assets/images/svg/ic_telegram.svg": "73f9a0ede528882146ea4bfe2ae935b5",
 "assets/assets/images/svg/ic_github.svg": "c23a95fcb4b1d25765107e4e73b06438",
 "assets/assets/images/png/person.png": "158ff4860632de8463c5000908ee5afd",
 "assets/assets/images/jpg/toysnme.jpg": "fb0432bf2728b93e5548356d46b15781",
