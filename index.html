@@ -9,6 +9,26 @@
   <meta name="description" content="Soun Savdan - Flutter Developer Portfolio. See apps, skills, and projects.">
   <meta name="author" content="Soun Savdan">
 
+  <!-- Firebase SDKs -->
+  <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: 'AIzaSyCtYHr_7qlgVVufKw-8VpahcL33zvT8CBQ',
+      appId: '1:357640835335:web:e56b087d20449e7dbeb5a2',
+      messagingSenderId: '357640835335',
+      projectId: 'portfolio-e0a63',
+      authDomain: 'portfolio-e0a63.firebaseapp.com',
+      storageBucket: 'portfolio-e0a63.firebasestorage.app',
+      measurementId: 'G-609Q1GJ0GV',
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics(app);
+  </script>
+
+
   <!-- Mobile App Settings -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
